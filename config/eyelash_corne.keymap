@@ -32,6 +32,15 @@
             #binding-cells = <0>;
             bindings = <&kp LEFT_SHIFT>, <&kp CAPS>;
         };
+
+        scroll_encoder_lr: scroll_encoder_lr {
+            compatible = "zmk,behavior-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            bindings = <&msc SCRL_LEFT>, <&msc SCRL_RIGHT>;
+
+            tap-ms = <30>;
+            label = "SCROLL_ENCODER_LR";
+        };
     };
 
     rgb_encoder: rgb_encoder {
