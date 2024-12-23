@@ -90,7 +90,7 @@
         };
 
         raise_layer {
-            display-name = "SYMBOL";
+            display-name = "MOVEMENT";
             bindings = <
 &trans  &mkp MB4           &msc SCRL_UP     &mmv MOVE_UP    &msc SCRL_DOWN            &mkp MB5                                            &mmv MOVE_UP                     &trans           &kp PAGE_UP  &kp UP_ARROW       &kp PAGE_DOWN  &trans      &mo 3
 &trans  &mkp LCLK          &mmv MOVE_LEFT   &mmv MOVE_DOWN  &mmv MOVE_RIGHT           &mkp RCLK                           &mmv MOVE_LEFT  &mkp LCLK       &mmv MOVE_RIGHT  &kp HOME         &kp LEFT     &kp DOWN           &kp RIGHT      &kp INSERT  &trans
@@ -102,6 +102,7 @@
         };
 
         layer_3 {
+            display-name = "CONFIG";
             bindings = <
 &trans  &out OUT_USB  &out OUT_BLE  &out OUT_TOG    &bt BT_PRV    &bt BT_NXT                      &trans          &rgb_ug RGB_TOG  &rgb_ug RGB_EFR  &rgb_ug RGB_EFF  &rgb_ug RGB_SPD  &rgb_ug RGB_SPI  &trans
 &trans  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2    &bt BT_SEL 3  &bt BT_SEL 4            &trans  &trans  &trans  &bl BL_TOG       &rgb_ug RGB_SAD  &rgb_ug RGB_SAI  &rgb_ug RGB_BRD  &rgb_ug RGB_BRI  &trans
