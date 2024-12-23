@@ -23,7 +23,7 @@
  */
 
 &mt {
-    tapping-term-ms = <140>;
+    tapping-term-ms = <200>;
 };
 
 #define ZMK_MOUSE_DEFAULT_MOVE_VAL 1500  // 600
