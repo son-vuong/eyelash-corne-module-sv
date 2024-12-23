@@ -26,7 +26,7 @@
     tapping-term-ms = <140>;
 };
 
-#define ZMK_MOUSE_DEFAULT_MOVE_VAL 1300  // 600
+#define ZMK_MOUSE_DEFAULT_MOVE_VAL 1500  // 600
 #define ZMK_MOUSE_DEFAULT_SCRL_VAL 20    // 10
 
 / {
