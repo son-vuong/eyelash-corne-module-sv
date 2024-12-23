@@ -78,7 +78,7 @@
 &kp F1  &kp F2                 &kp F3                 &kp F4                   &kp F5                     &kp F6                                             &mmv MOVE_UP                     &kp F7           &kp F8                     &kp F9             &kp F10            &kp F11           &kp F12
 &trans  &mt LEFT_GUI NUMBER_1  &mt LEFT_ALT NUMBER_2  &mt LEFT_SHIFT NUMBER_3  &mt LEFT_CONTROL NUMBER_4  &kp N5                             &mmv MOVE_LEFT  &mkp LCLK       &mmv MOVE_RIGHT  &kp NUMBER_6     &mt RCTRL N7               &mt LEFT_SHIFT N8  &mt RIGHT_ALT N9   &mt RIGHT_GUI N9  &trans
 &trans  &kp ESCAPE             &kp GRAVE              &kp BACKSLASH            &mt LGUI LEFT_ARROW        &mt RIGHT_GUI RIGHT  &kp C_MUTE                    &mmv MOVE_DOWN                   &kp MINUS        &kp EQUAL                  &kp LEFT_BRACKET   &kp RIGHT_BRACKET  &kp SINGLE_QUOTE  &trans
-                                                      &kp LEFT_ALT             &trans                     &kp LCTRL                                                                           &mt RCTRL ENTER  &mt RIGHT_SHIFT BACKSPACE  &mt RIGHT_ALT TAB
+                                                      &kp LEFT_ALT             &trans                     &mt LCTRL DELETE                                                                    &mt RCTRL ENTER  &mt RIGHT_SHIFT BACKSPACE  &mt RIGHT_ALT TAB
             >;
 
             sensor-bindings = <&scroll_encoder>;
@@ -87,10 +87,10 @@
         raise_layer {
             display-name = "SYMBOL";
             bindings = <
-&trans  &mkp MB4           &msc SCRL_UP     &mmv MOVE_UP    &msc SCRL_DOWN            &mkp MB5                                            &mmv MOVE_UP                     &trans    &kp PAGE_UP  &kp UP_ARROW  &kp PAGE_DOWN  &trans      &mo 3
-&trans  &bt BT_CLR         &mmv MOVE_LEFT   &mmv MOVE_DOWN  &mmv MOVE_RIGHT           &mkp MB4                            &mmv MOVE_LEFT  &mkp LCLK       &mmv MOVE_RIGHT  &kp HOME  &kp LEFT     &kp DOWN      &kp RIGHT      &kp INSERT  &trans
-&trans  &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &kp LEFT_SHIFT  &kp C_MUTE                &kp C_PLAY_PAUSE      &kp C_MUTE                    &mmv MOVE_DOWN                   &kp END   &trans       &trans        &kp C_PREV     &kp C_NEXT  &trans
-                                            &kp LEFT_ALT    &mt LEFT_SHIFT BACKSPACE  &mt LEFT_CONTROL DEL                                                                 &kp RET   &trans       &trans
+&trans  &mkp MB4           &msc SCRL_UP     &mmv MOVE_UP    &msc SCRL_DOWN            &mkp MB5                                            &mmv MOVE_UP                     &trans           &kp PAGE_UP  &kp UP_ARROW       &kp PAGE_DOWN  &trans      &mo 3
+&trans  &bt BT_CLR         &mmv MOVE_LEFT   &mmv MOVE_DOWN  &mmv MOVE_RIGHT           &mkp MB4                            &mmv MOVE_LEFT  &mkp LCLK       &mmv MOVE_RIGHT  &kp HOME         &kp LEFT     &kp DOWN           &kp RIGHT      &kp INSERT  &trans
+&trans  &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &kp LEFT_SHIFT  &kp C_MUTE                &kp C_PLAY_PAUSE      &kp C_MUTE                    &mmv MOVE_DOWN                   &kp END          &trans       &trans             &kp C_PREV     &kp C_NEXT  &trans
+                                            &kp LEFT_ALT    &mt LEFT_SHIFT BACKSPACE  &mt LEFT_CONTROL DEL                                                                 &mt RCTRL ENTER  &trans       &mt RIGHT_ALT TAB
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
@@ -98,10 +98,10 @@
 
         layer_3 {
             bindings = <
-&trans  &out OUT_USB  &out OUT_BLE  &out OUT_TOG  &trans  &trans                    &trans          &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans        &trans        &trans        &trans  &trans            &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans        &trans        &trans        &trans  &trans  &trans            &trans          &trans  &trans  &trans  &trans  &trans  &trans
-                                    &trans        &sl 0   &trans                                    &trans  &sl 0   &trans
+&trans  &out OUT_USB  &out OUT_BLE  &out OUT_TOG    &bt BT_PRV    &bt BT_NXT                      &trans          &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2    &bt BT_SEL 3  &bt BT_SEL 4            &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans        &trans        &trans          &trans        &trans        &trans            &trans          &trans  &trans  &trans  &trans  &trans  &trans
+                                    &bt BT_CLR_ALL  &trans        &bt BT_CLR                                      &trans  &trans  &trans
             >;
         };
     };
