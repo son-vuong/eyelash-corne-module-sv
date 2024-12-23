@@ -75,7 +75,7 @@ layers:
   - {t: '7', h: '$$mdi:apple-keyboard-control$$', s: '&'}
   - {t: '8', h: '$$mdi:apple-keyboard-shift$$', s: '*'}
   - {t: '9', h: '$$mdi:apple-keyboard-option$$', s: (}
-  - {t: '9', h: RIGHT GUI, s: (}
+  - {t: '0', h: RIGHT GUI, s: )}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - $$mdi:keyboard-esc$$
