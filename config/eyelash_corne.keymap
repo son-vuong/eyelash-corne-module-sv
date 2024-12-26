@@ -33,34 +33,106 @@
 #include "zmk-helpers/key-labels/42.h"                                      // key-position labels
 #define KEYS_L LT0 LT1 LT2 LT3 LT4 LT5 LM0 LM1 LM2 LM3 LM4 LM5 LB0 LB1 LB2 LB3 LB4 LB5  // left-hand keys
 #define KEYS_R RT0 RT1 RT2 RT3 RT4 RT5 RM0 RM1 RM2 RM3 RM4 RM5 RB0 RB1 RB2 RB3 RB4 RB5  // right-hand keys
-#define THUMBS LH2 LH1 LH0 RH0 RH1 RH2                                      // thumb keys
+#define KEYS_T LH2 LH1 LH0 RH0 RH1 RH2                                      // thumb keys
+
+#define HM_TAPPING_TERM 300
+#define HM_TAPPING_TERM_FAST 200
+#define HM_PRIOR_IDLE 150
 
 
 / {
     behaviors {
          
-         /* left-hand HRMs */
-         hml: ZMK_HOLD_TAP(hml,
-             flavor = "balanced";
-             tapping-term-ms = <280>;
-             quick-tap-ms = <175>;                // repeat on tap-into-hold
-             require-prior-idle-ms = <150>;
-             bindings = <&kp>, <&kp>;
-             hold-trigger-key-positions = <KEYS_R THUMBS>;
-             hold-trigger-on-release;             // delay positional check until key-release
-         )
-         
-         /* right-hand HRMs */
-         hmr: ZMK_HOLD_TAP(hmr,
-             flavor = "balanced";
-             tapping-term-ms = <280>;
-             quick-tap-ms = <175>;                // repeat on tap-into-hold
-             require-prior-idle-ms = <150>;
-             bindings = <&kp>, <&kp>;
-             hold-trigger-key-positions = <KEYS_L THUMBS>;
-             hold-trigger-on-release;             // delay positional check until key-release
-         )
+        
+        // Positional Homerow mods
+        // Homerow mods that prevent accidental activations when rolling keys,
+        // such as when typing `st` or `ne` on colemak-dh layouts or `as` on
+        // qwerty.
+        //
+        // Works by only allowing a mod to activate within tapping-term if
+        // it's on the opposite side of the keyboard or on the same side thumb
+        // keys.
 
+        // Further optimization using urob's timerless homerow mods method:
+        // https://github.com/urob/zmk-config#timeless-homerow-mods
+        hm_l: homerow_mods_left {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            bindings = <&kp>,  <&kp>;
+
+            flavor = "balanced";
+            tapping-term-ms = <HM_TAPPING_TERM>;
+            quick-tap-ms = <175>;                // repeat on tap-into-hold
+            require-prior-idle-ms = <HM_PRIOR_IDLE>;
+
+            hold-trigger-key-positions = <KEYS_R KEYS_T>;
+            hold-trigger-on-release;
+        };
+
+        hm_r: homerow_mods_right {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            bindings = <&kp>, <&kp>;
+
+            flavor = "balanced";
+            tapping-term-ms = <HM_TAPPING_TERM>;
+            quick-tap-ms = <175>;
+            require-prior-idle-ms = <HM_PRIOR_IDLE>;
+
+            hold-trigger-key-positions = <KEYS_L KEYS_T>;
+            hold-trigger-on-release;
+        };
+
+
+        // Positional Homerow mods for shift
+        // Use faster tapping term and disable some features that may
+        // cause false negatives.
+        hm_shift_l: hm_shift_l {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            bindings = <&kp>, <&kp>;
+
+            flavor = "balanced";
+            tapping-term-ms = <HM_TAPPING_TERM_FAST>;
+            quick-tap-ms = <175>;
+            require-prior-idle-ms = <HM_PRIOR_IDLE>;
+
+            hold-trigger-key-positions = <KEYS_R KEYS_T>;
+            // hold-trigger-on-release;
+        };
+
+        hm_shift_r: hm_shift_r {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            bindings = <&kp>, <&kp>;
+
+            flavor = "balanced";
+            tapping-term-ms = <HM_TAPPING_TERM_FAST>;
+            quick-tap-ms = <175>;
+            require-prior-idle-ms = <HM_PRIOR_IDLE>;
+
+            hold-trigger-key-positions = <KEYS_L KEYS_T>;
+            // hold-trigger-on-release;
+        };
+
+        /*
+         * Non-Positional Homerow Mods
+         * Used for &mm_grescm_gui behavior on left hand.
+         *
+         * Usage: &hm LSHFT T
+         * Tap: T
+         * Tap-Tap-Hold: Repeat T
+         * Hold: LSHIFT
+         */
+        hm: homerow_mods {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            bindings = <&kp>, <&kp>;
+
+            flavor = "balanced";
+            tapping-term-ms = <HM_TAPPING_TERM>;
+            quick-tap-ms = <200>;
+        };
 
         td0: td0 {
             compatible = "zmk,behavior-tap-dance";
@@ -100,9 +172,9 @@
             display-name = "QWERTY";
             bindings = <
 &trans  &kp Q       &kp W           &kp E             &kp R            &kp T                                            &kp UP                &kp Y            &kp U        &kp I         &kp O            &kp P               &trans
-&td0    &hml LGUI A  &hml LEFT_ALT S  &hml LEFT_SHIFT D  &hml LCTRL F      &kp G                                  &kp LEFT  &kp ENTER  &kp RIGHT  &kp H            &hmr LCTRL J  &hmr RSHIFT K  &hmr RIGHT_ALT L  &hmr RIGHT_GUI SEMI  &trans
+&td0    &hm_l LGUI A  &hm_l LEFT_ALT S  &hm_l LEFT_SHIFT D  &hm_l LCTRL F      &kp G                                  &kp LEFT  &kp ENTER  &kp RIGHT  &kp H            &hm_r LCTRL J  &hm_r RSHIFT K  &hm_r RIGHT_ALT L  &hm_r RIGHT_GUI SEMI  &trans
 &trans  &kp Z       &kp X           &kp C             &kp V            &kp B                    &kp C_MUTE              &kp DOWN              &kp N            &kp M        &kp COMMA     &kp DOT          &kp FSLH            &trans
-                                    &kp LEFT_ALT      &lt 1 BACKSPACE  &hmr LEFT_CONTROL DELETE                                                &hmr RCTRL ENTER  &lt 2 SPACE  &hmr RALT TAB
+                                    &kp LEFT_ALT      &lt 1 BACKSPACE  &hm_l LEFT_CONTROL DELETE                                                &hm_r RCTRL ENTER  &lt 2 SPACE  &hm_r RALT TAB
             >;
 
             sensor-bindings = <&scroll_encoder_lr>;
@@ -112,9 +184,9 @@
             display-name = "NUMBER";
             bindings = <
 &kp F1  &kp F2                 &kp F3                 &kp F4                   &kp F5                     &kp F6                                             &mmv MOVE_UP                     &kp F7           &kp F8                     &kp F9             &kp F10            &kp F11           &kp F12
-&trans  &hml LEFT_GUI NUMBER_1  &hml LEFT_ALT NUMBER_2  &hml LEFT_SHIFT NUMBER_3  &hml LEFT_CONTROL NUMBER_4  &kp N5                             &mmv MOVE_LEFT  &mkp LCLK       &mmv MOVE_RIGHT  &kp NUMBER_6     &hmr RCTRL N7               &hmr LEFT_SHIFT N8  &hmr RIGHT_ALT N9   &hmr RIGHT_GUI N0 &trans
-&trans  &kp ESCAPE             &kp GRAVE              &kp BACKSLASH            &hml LGUI LEFT_ARROW        &hml RIGHT_GUI RIGHT  &kp C_MUTE                    &mmv MOVE_DOWN                   &kp MINUS        &kp EQUAL                  &kp LEFT_BRACKET   &kp RIGHT_BRACKET  &kp SINGLE_QUOTE  &trans
-                                                      &kp LEFT_ALT             &trans                     &hmr LCTRL DELETE                                                                    &hmr RCTRL ENTER  &hmr RIGHT_SHIFT BACKSPACE  &hmr RIGHT_ALT TAB
+&trans  &hm_l LEFT_GUI NUMBER_1  &hm_l LEFT_ALT NUMBER_2  &hm_l LEFT_SHIFT NUMBER_3  &hm_l LEFT_CONTROL NUMBER_4  &kp N5                             &mmv MOVE_LEFT  &mkp LCLK       &mmv MOVE_RIGHT  &kp NUMBER_6     &hm_r RCTRL N7               &hm_r LEFT_SHIFT N8  &hm_r RIGHT_ALT N9   &hm_r RIGHT_GUI N0 &trans
+&trans  &kp ESCAPE             &kp GRAVE              &kp BACKSLASH            &hm_l LGUI LEFT_ARROW        &hm_l RIGHT_GUI RIGHT  &kp C_MUTE                    &mmv MOVE_DOWN                   &kp MINUS        &kp EQUAL                  &kp LEFT_BRACKET   &kp RIGHT_BRACKET  &kp SINGLE_QUOTE  &trans
+                                                      &kp LEFT_ALT             &trans                     &hm_l LCTRL DELETE                                                                    &hm_r RCTRL ENTER  &hm_r RIGHT_SHIFT BACKSPACE  &hm_r RIGHT_ALT TAB
             >;
 
             sensor-bindings = <&scroll_encoder>;
@@ -126,7 +198,7 @@
 &trans  &mkp MB4           &msc SCRL_UP     &mmv MOVE_UP    &msc SCRL_DOWN            &mkp MB5                                            &mmv MOVE_UP                     &trans           &kp PAGE_UP  &kp UP_ARROW       &kp PAGE_DOWN  &trans      &mo 3
 &trans  &mkp LCLK          &mmv MOVE_LEFT   &mmv MOVE_DOWN  &mmv MOVE_RIGHT           &mkp RCLK                           &mmv MOVE_LEFT  &mkp LCLK       &mmv MOVE_RIGHT  &kp HOME         &kp LEFT     &kp DOWN           &kp RIGHT      &kp INSERT  &trans
 &trans  &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &kp LEFT_SHIFT  &kp C_MUTE                &kp C_PLAY_PAUSE      &kp C_MUTE                    &mmv MOVE_DOWN                   &kp END          &trans       &trans             &kp C_PREV     &kp C_NEXT  &trans
-                                            &kp LEFT_ALT    &hml LEFT_SHIFT BACKSPACE  &hml LEFT_CONTROL DEL                                                                 &hmr RCTRL ENTER  &trans       &hmr RIGHT_ALT TAB
+                                            &kp LEFT_ALT    &hm_l LEFT_SHIFT BACKSPACE  &hm_l LEFT_CONTROL DEL                                                                 &hm_r RCTRL ENTER  &trans       &hm_r RIGHT_ALT TAB
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
