@@ -172,7 +172,7 @@
                                         &kp LEFT_ALT        &lt 1 BACKSPACE  &hm_l LEFT_CONTROL DELETE                                                                 &hm_r RCTRL ENTER  &lt 2 SPACE    &hm_r RALT TAB
             >;
 
-            sensor-bindings = <&scroll_encoder_lr>;
+            sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
         };
 
         lower_layer {
@@ -184,7 +184,7 @@
                                                           &kp LEFT_ALT               &trans                       &hm_l LCTRL DELETE                                                                    &hm_r RCTRL ENTER  &hm_r RIGHT_SHIFT BACKSPACE  &hm_r RIGHT_ALT TAB
             >;
 
-            sensor-bindings = <&scroll_encoder>;
+            sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
         };
 
         raise_layer {
