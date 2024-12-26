@@ -22,7 +22,7 @@
 
  */
 
-&hmr {
+&mt {
     tapping-term-ms = <200>;
 };
 
