@@ -40,7 +40,7 @@
     behaviors {
          
          /* left-hand HRMs */
-         ZMK_HOLD_TAP(hml,
+         hml: ZMK_HOLD_TAP(hml,
              flavor = "balanced";
              tapping-term-ms = <280>;
              quick-tap-ms = <175>;                // repeat on tap-into-hold
@@ -51,7 +51,7 @@
          )
          
          /* right-hand HRMs */
-         ZMK_HOLD_TAP(hmr,
+         hmr: ZMK_HOLD_TAP(hmr,
              flavor = "balanced";
              tapping-term-ms = <280>;
              quick-tap-ms = <175>;                // repeat on tap-into-hold
