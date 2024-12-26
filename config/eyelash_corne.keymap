@@ -22,46 +22,15 @@
 
  */
 
-&hmr {
+&mt {
     tapping-term-ms = <200>;
 };
 
 #define ZMK_MOUSE_DEFAULT_MOVE_VAL 1500  // 600
 #define ZMK_MOUSE_DEFAULT_SCRL_VAL 20    // 10
 
-/* use helper macros to define left and right hand keys */
-#include "zmk-helpers/key-labels/42.h"                                      // key-position labels
-#define KEYS_L LT0 LT1 LT2 LT3 LT4 LT5 LM0 LM1 LM2 LM3 LM4 LM5 LB0 LB1 LB2 LB3 LB4 LB5  // left-hand keys
-#define KEYS_R RT0 RT1 RT2 RT3 RT4 RT5 RM0 RM1 RM2 RM3 RM4 RM5 RB0 RB1 RB2 RB3 RB4 RB5  // right-hand keys
-#define THUMBS LH2 LH1 LH0 RH0 RH1 RH2                                      // thumb keys
-
-
 / {
     behaviors {
-         
-         /* left-hand HRMs */
-         ZMK_HOLD_TAP(hml,
-             flavor = "balanced";
-             tapping-term-ms = <280>;
-             quick-tap-ms = <175>;                // repeat on tap-into-hold
-             require-prior-idle-ms = <150>;
-             bindings = <&kp>, <&kp>;
-             hold-trigger-key-positions = <KEYS_R THUMBS>;
-             hold-trigger-on-release;             // delay positional check until key-release
-         )
-         
-         /* right-hand HRMs */
-         ZMK_HOLD_TAP(hmr,
-             flavor = "balanced";
-             tapping-term-ms = <280>;
-             quick-tap-ms = <175>;                // repeat on tap-into-hold
-             require-prior-idle-ms = <150>;
-             bindings = <&kp>, <&kp>;
-             hold-trigger-key-positions = <KEYS_L THUMBS>;
-             hold-trigger-on-release;             // delay positional check until key-release
-         )
-
-
         td0: td0 {
             compatible = "zmk,behavior-tap-dance";
             display-name = "Shift/Caps Lock Tap Dance";
@@ -100,9 +69,9 @@
             display-name = "QWERTY";
             bindings = <
 &trans  &kp Q       &kp W           &kp E             &kp R            &kp T                                            &kp UP                &kp Y            &kp U        &kp I         &kp O            &kp P               &trans
-&td0    &hml LGUI A  &hml LEFT_ALT S  &hml LEFT_SHIFT D  &hml LCTRL F      &kp G                                  &kp LEFT  &kp ENTER  &kp RIGHT  &kp H            &hmr LCTRL J  &hmr RSHIFT K  &hmr RIGHT_ALT L  &hmr RIGHT_GUI SEMI  &trans
+&td0    &mt LGUI A  &mt LEFT_ALT S  &mt LEFT_SHIFT D  &mt LCTRL F      &kp G                                  &kp LEFT  &kp ENTER  &kp RIGHT  &kp H            &mt LCTRL J  &mt RSHIFT K  &mt RIGHT_ALT L  &mt RIGHT_GUI SEMI  &trans
 &trans  &kp Z       &kp X           &kp C             &kp V            &kp B                    &kp C_MUTE              &kp DOWN              &kp N            &kp M        &kp COMMA     &kp DOT          &kp FSLH            &trans
-                                    &kp LEFT_ALT      &lt 1 BACKSPACE  &hmr LEFT_CONTROL DELETE                                                &hmr RCTRL ENTER  &lt 2 SPACE  &hmr RALT TAB
+                                    &kp LEFT_ALT      &lt 1 BACKSPACE  &mt LEFT_CONTROL DELETE                                                &mt RCTRL ENTER  &lt 2 SPACE  &mt RALT TAB
             >;
 
             sensor-bindings = <&scroll_encoder_lr>;
@@ -112,9 +81,9 @@
             display-name = "NUMBER";
             bindings = <
 &kp F1  &kp F2                 &kp F3                 &kp F4                   &kp F5                     &kp F6                                             &mmv MOVE_UP                     &kp F7           &kp F8                     &kp F9             &kp F10            &kp F11           &kp F12
-&trans  &hml LEFT_GUI NUMBER_1  &hml LEFT_ALT NUMBER_2  &hml LEFT_SHIFT NUMBER_3  &hml LEFT_CONTROL NUMBER_4  &kp N5                             &mmv MOVE_LEFT  &mkp LCLK       &mmv MOVE_RIGHT  &kp NUMBER_6     &hmr RCTRL N7               &hmr LEFT_SHIFT N8  &hmr RIGHT_ALT N9   &hmr RIGHT_GUI N0 &trans
-&trans  &kp ESCAPE             &kp GRAVE              &kp BACKSLASH            &hml LGUI LEFT_ARROW        &hml RIGHT_GUI RIGHT  &kp C_MUTE                    &mmv MOVE_DOWN                   &kp MINUS        &kp EQUAL                  &kp LEFT_BRACKET   &kp RIGHT_BRACKET  &kp SINGLE_QUOTE  &trans
-                                                      &kp LEFT_ALT             &trans                     &hmr LCTRL DELETE                                                                    &hmr RCTRL ENTER  &hmr RIGHT_SHIFT BACKSPACE  &hmr RIGHT_ALT TAB
+&trans  &mt LEFT_GUI NUMBER_1  &mt LEFT_ALT NUMBER_2  &mt LEFT_SHIFT NUMBER_3  &mt LEFT_CONTROL NUMBER_4  &kp N5                             &mmv MOVE_LEFT  &mkp LCLK       &mmv MOVE_RIGHT  &kp NUMBER_6     &mt RCTRL N7               &mt LEFT_SHIFT N8  &mt RIGHT_ALT N9   &mt RIGHT_GUI N0 &trans
+&trans  &kp ESCAPE             &kp GRAVE              &kp BACKSLASH            &mt LGUI LEFT_ARROW        &mt RIGHT_GUI RIGHT  &kp C_MUTE                    &mmv MOVE_DOWN                   &kp MINUS        &kp EQUAL                  &kp LEFT_BRACKET   &kp RIGHT_BRACKET  &kp SINGLE_QUOTE  &trans
+                                                      &kp LEFT_ALT             &trans                     &mt LCTRL DELETE                                                                    &mt RCTRL ENTER  &mt RIGHT_SHIFT BACKSPACE  &mt RIGHT_ALT TAB
             >;
 
             sensor-bindings = <&scroll_encoder>;
@@ -126,7 +95,7 @@
 &trans  &mkp MB4           &msc SCRL_UP     &mmv MOVE_UP    &msc SCRL_DOWN            &mkp MB5                                            &mmv MOVE_UP                     &trans           &kp PAGE_UP  &kp UP_ARROW       &kp PAGE_DOWN  &trans      &mo 3
 &trans  &mkp LCLK          &mmv MOVE_LEFT   &mmv MOVE_DOWN  &mmv MOVE_RIGHT           &mkp RCLK                           &mmv MOVE_LEFT  &mkp LCLK       &mmv MOVE_RIGHT  &kp HOME         &kp LEFT     &kp DOWN           &kp RIGHT      &kp INSERT  &trans
 &trans  &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &kp LEFT_SHIFT  &kp C_MUTE                &kp C_PLAY_PAUSE      &kp C_MUTE                    &mmv MOVE_DOWN                   &kp END          &trans       &trans             &kp C_PREV     &kp C_NEXT  &trans
-                                            &kp LEFT_ALT    &hml LEFT_SHIFT BACKSPACE  &hml LEFT_CONTROL DEL                                                                 &hmr RCTRL ENTER  &trans       &hmr RIGHT_ALT TAB
+                                            &kp LEFT_ALT    &mt LEFT_SHIFT BACKSPACE  &mt LEFT_CONTROL DEL                                                                 &mt RCTRL ENTER  &trans       &mt RIGHT_ALT TAB
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
