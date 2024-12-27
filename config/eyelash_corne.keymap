@@ -22,8 +22,8 @@
 #define KEYS_T LH2 LH1 LH0 RH0 RH1 RH2                                      // thumb keys
 #define HM_TAPPING_TERM 140
 #define HM_TAPPING_TERM_FAST 130
-#define HM_PRIOR_IDLE 120
-
+#define HM_PRIOR_IDLE 150
+#define HM_QUICK_TAP 175 
 / {
     behaviors {
         // Positional Homerow mods
@@ -44,7 +44,7 @@
 
             flavor = "balanced";
             tapping-term-ms = <HM_TAPPING_TERM>;
-            quick-tap-ms = <140>;                // repeat on tap-into-hold
+            quick-tap-ms = <HM_QUICK_TAP>;                // repeat on tap-into-hold
             require-prior-idle-ms = <HM_PRIOR_IDLE>;
             hold-trigger-key-positions = <KEYS_R KEYS_T>;
             hold-trigger-on-release;
@@ -57,7 +57,7 @@
 
             flavor = "balanced";
             tapping-term-ms = <HM_TAPPING_TERM>;
-            quick-tap-ms = <140>;
+            quick-tap-ms = <HM_QUICK_TAP>;
             require-prior-idle-ms = <HM_PRIOR_IDLE>;
             hold-trigger-key-positions = <KEYS_L KEYS_T>;
             hold-trigger-on-release;
@@ -74,7 +74,7 @@
 
             flavor = "balanced";
             tapping-term-ms = <HM_TAPPING_TERM_FAST>;
-            quick-tap-ms = <140>;
+            quick-tap-ms = <HM_QUICK_TAP>;
             require-prior-idle-ms = <HM_PRIOR_IDLE>;
             hold-trigger-key-positions = <KEYS_R KEYS_T>;
 
@@ -88,7 +88,7 @@
 
             flavor = "balanced";
             tapping-term-ms = <HM_TAPPING_TERM_FAST>;
-            quick-tap-ms = <140>;
+            quick-tap-ms = <HM_QUICK_TAP>;
             require-prior-idle-ms = <HM_PRIOR_IDLE>;
             hold-trigger-key-positions = <KEYS_L KEYS_T>;
 
@@ -112,7 +112,7 @@
 
             flavor = "balanced";
             tapping-term-ms = <HM_TAPPING_TERM>;
-            quick-tap-ms = <200>;
+            quick-tap-ms = <HM_QUICK_TAP>;
         };
 
         td0: td0 {
