@@ -22,7 +22,7 @@
 #define KEYS_T LH2 LH1 LH0 RH0 RH1 RH2                                      // thumb keys
 #define HM_TAPPING_TERM 140
 #define HM_TAPPING_TERM_FAST 130
-#define HM_TAPPING_TERM_SLOW 240
+#define HM_TAPPING_TERM_SLOW 170
 #define HM_PRIOR_IDLE 150
 #define HM_QUICK_TAP 175 
 / {
