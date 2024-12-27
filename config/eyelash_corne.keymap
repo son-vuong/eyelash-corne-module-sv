@@ -20,9 +20,9 @@
 #define KEYS_L LT0 LT1 LT2 LT3 LT4 LT5 LM0 LM1 LM2 LM3 LM4 LM5 LB0 LB1 LB2 LB3 LB4 LB5  // left-hand keys
 #define KEYS_R RT0 RT1 RT2 RT3 RT4 RT5 RM0 RM1 RM2 RM3 RM4 RM5 RB0 RB1 RB2 RB3 RB4 RB5  // right-hand keys
 #define KEYS_T LH2 LH1 LH0 RH0 RH1 RH2                                      // thumb keys
-#define HM_TAPPING_TERM 150
-#define HM_TAPPING_TERM_FAST 140
-#define HM_PRIOR_IDLE 120
+#define HM_TAPPING_TERM 140
+#define HM_TAPPING_TERM_FAST 120
+#define HM_PRIOR_IDLE 100
 
 / {
     behaviors {
@@ -57,7 +57,7 @@
 
             flavor = "balanced";
             tapping-term-ms = <HM_TAPPING_TERM>;
-            quick-tap-ms = <140>;
+            quick-tap-ms = <110>;
             require-prior-idle-ms = <HM_PRIOR_IDLE>;
             hold-trigger-key-positions = <KEYS_L KEYS_T>;
             hold-trigger-on-release;
@@ -74,7 +74,7 @@
 
             flavor = "balanced";
             tapping-term-ms = <HM_TAPPING_TERM_FAST>;
-            quick-tap-ms = <140>;
+            quick-tap-ms = <110>;
             require-prior-idle-ms = <HM_PRIOR_IDLE>;
             hold-trigger-key-positions = <KEYS_R KEYS_T>;
 
@@ -88,7 +88,7 @@
 
             flavor = "balanced";
             tapping-term-ms = <HM_TAPPING_TERM_FAST>;
-            quick-tap-ms = <140>;
+            quick-tap-ms = <110>;
             require-prior-idle-ms = <HM_PRIOR_IDLE>;
             hold-trigger-key-positions = <KEYS_L KEYS_T>;
 
@@ -164,9 +164,9 @@
         lower_layer {
             display-name = "NUMBER";
             bindings = <
-&kp F1  &kp F2                   &kp F3                   &kp F4                     &kp F5                       &kp F6                                              U_MS_U                    &kp F7             &kp F8                       &kp F9               &kp F10             &kp F11             &kp F12
-&trans  &hm_l LEFT_GUI NUMBER_1  &hm_l LEFT_ALT NUMBER_2  &hm_l LEFT_SHIFT NUMBER_3  &hm_l LEFT_CONTROL NUMBER_4  &kp N5                              U_MS_L &mkp LCLK       U_MS_R  &kp NUMBER_6       &hm_r RCTRL N7               &hm_r LEFT_SHIFT N8  &hm_r RIGHT_ALT N9  &hm_r RIGHT_GUI N0  &trans
-&trans  &kp ESCAPE               &kp GRAVE                &kp BACKSLASH              &hm_l LGUI LEFT_ARROW        &hm_l RIGHT_GUI RIGHT  &kp C_MUTE                   U_MS_D                  &kp MINUS          &kp EQUAL                    &kp LEFT_BRACKET     &kp RIGHT_BRACKET   &kp SINGLE_QUOTE    &trans
+&trans  &kp F1  &kp F2                   &kp F3                   &kp F4                     &kp F5                                                                    U_MS_U        &kp F6             &kp F7             &kp F8                       &kp F9               &kp F10             &trans
+&trans  &hm_l LEFT_GUI NUMBER_1  &hm_l LEFT_ALT NUMBER_2  &hm_l LEFT_SHIFT NUMBER_3  &hm_l LEFT_CONTROL NUMBER_4  &kp N5                              U_MS_L &mkp LCLK       U_MS_R  &kp NUMBER_6       &hm_r RCTRL N7               &hm_r LEFT_SHIFT N8  &hm_r RIGHT_ALT N9  &hm_r RIGHT_GUI N0  &kp F11             
+&trans  &kp ESCAPE               &kp GRAVE                &kp BACKSLASH              &hm_l LGUI LEFT_ARROW        &hm_l RIGHT_GUI RIGHT  &kp C_MUTE                   U_MS_D                  &kp MINUS          &kp EQUAL                    &kp LEFT_BRACKET     &kp RIGHT_BRACKET   &kp SINGLE_QUOTE    &kp F12
                                                           &kp LEFT_ALT               &trans                       &hm_l LCTRL DELETE                                                                    &hm_r RCTRL ENTER  &hm_r RIGHT_SHIFT BACKSPACE  &hm_r RIGHT_ALT TAB
             >;
 
