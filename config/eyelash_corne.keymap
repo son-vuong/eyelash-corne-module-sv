@@ -21,8 +21,8 @@
 #define KEYS_R RT0 RT1 RT2 RT3 RT4 RT5 RM0 RM1 RM2 RM3 RM4 RM5 RB0 RB1 RB2 RB3 RB4 RB5  // right-hand keys
 #define KEYS_T LH2 LH1 LH0 RH0 RH1 RH2                                      // thumb keys
 #define HM_TAPPING_TERM 140
-#define HM_TAPPING_TERM_FAST 120
-#define HM_PRIOR_IDLE 100
+#define HM_TAPPING_TERM_FAST 130
+#define HM_PRIOR_IDLE 120
 
 / {
     behaviors {
@@ -57,7 +57,7 @@
 
             flavor = "balanced";
             tapping-term-ms = <HM_TAPPING_TERM>;
-            quick-tap-ms = <110>;
+            quick-tap-ms = <140>;
             require-prior-idle-ms = <HM_PRIOR_IDLE>;
             hold-trigger-key-positions = <KEYS_L KEYS_T>;
             hold-trigger-on-release;
@@ -74,7 +74,7 @@
 
             flavor = "balanced";
             tapping-term-ms = <HM_TAPPING_TERM_FAST>;
-            quick-tap-ms = <110>;
+            quick-tap-ms = <140>;
             require-prior-idle-ms = <HM_PRIOR_IDLE>;
             hold-trigger-key-positions = <KEYS_R KEYS_T>;
 
@@ -88,7 +88,7 @@
 
             flavor = "balanced";
             tapping-term-ms = <HM_TAPPING_TERM_FAST>;
-            quick-tap-ms = <110>;
+            quick-tap-ms = <140>;
             require-prior-idle-ms = <HM_PRIOR_IDLE>;
             hold-trigger-key-positions = <KEYS_L KEYS_T>;
 
