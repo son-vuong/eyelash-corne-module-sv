@@ -23,7 +23,7 @@
 #define HM_TAPPING_TERM 140
 #define HM_TAPPING_TERM_FAST 130
 #define HM_TAPPING_TERM_SLOW 200
-#define HM_PRIOR_IDLE 150
+#define HM_PRIOR_IDLE 105
 #define HM_QUICK_TAP 175 
 / {
     behaviors {
