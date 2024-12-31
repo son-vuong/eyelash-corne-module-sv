@@ -21,7 +21,7 @@
 #define KEYS_R RT0 RT1 RT2 RT3 RT4 RT5 RM0 RM1 RM2 RM3 RM4 RM5 RB0 RB1 RB2 RB3 RB4 RB5  // right-hand keys
 #define KEYS_T LH2 LH1 LH0 RH0 RH1 RH2                                      // thumb keys
 #define HM_TAPPING_TERM 140
-#define HM_TAPPING_TERM_FAST 110
+#define HM_TAPPING_TERM_FAST 120
 #define HM_TAPPING_TERM_SLOW 200
 #define HM_PRIOR_IDLE 100
 #define HM_QUICK_TAP 175 
@@ -49,6 +49,7 @@
             require-prior-idle-ms = <HM_PRIOR_IDLE>;
             hold-trigger-key-positions = <KEYS_R KEYS_T>;
             hold-trigger-on-release;
+            retro-tap;
         };
 
         hm_r: homerow_mods_right {
@@ -62,6 +63,7 @@
             require-prior-idle-ms = <HM_PRIOR_IDLE>;
             hold-trigger-key-positions = <KEYS_L KEYS_T>;
             hold-trigger-on-release;
+            retro-tap;
         };
 
         // Positional Homerow mods for shift
@@ -79,6 +81,7 @@
             require-prior-idle-ms = <HM_PRIOR_IDLE>;
             hold-trigger-key-positions = <KEYS_R KEYS_T>;
             hold-trigger-on-release;
+            retro-tap;
         };
 
         hm_shift_r: hm_shift_r {
@@ -92,6 +95,7 @@
             require-prior-idle-ms = <HM_PRIOR_IDLE>;
             hold-trigger-key-positions = <KEYS_L KEYS_T>;
             hold-trigger-on-release;
+            retro-tap;
         };
 
         hm_alt_l: hm_alt_l {
@@ -105,6 +109,7 @@
             require-prior-idle-ms = <HM_PRIOR_IDLE>;
             hold-trigger-key-positions = <KEYS_R KEYS_T>;
             hold-trigger-on-release;
+            retro-tap;
         };
 
         hm_alt_r: hm_alt_r {
@@ -118,6 +123,7 @@
             require-prior-idle-ms = <HM_PRIOR_IDLE>;
             hold-trigger-key-positions = <KEYS_L KEYS_T>;
             hold-trigger-on-release;
+            retro-tap;
         };
 
         /*
@@ -138,6 +144,7 @@
             flavor = "balanced";
             tapping-term-ms = <HM_TAPPING_TERM>;
             quick-tap-ms = <HM_QUICK_TAP>;
+            retro-tap;
         };
 
         td0: td0 {
