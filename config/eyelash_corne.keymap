@@ -175,7 +175,7 @@
     scroll_encoder_lr: scroll_encoder_lr {
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
-            bindings = <&msc SCRL_LEFT>, <&msc SCRL_RIGHT>;
+            bindings = <&msc SCRL_RIGHT>, <&msc SCRL_LEFT>;
 
             tap-ms = <30>;
             label = "SCROLL_ENCODER_LR";
@@ -205,7 +205,7 @@
                                                           &kp LEFT_ALT               &trans                       &hm_l LCTRL DELETE                                                                    &hm_r RCTRL ENTER  &hm_shift_r RIGHT_SHIFT BACKSPACE  &hm_alt_r RIGHT_ALT TAB
             >;
 
-            sensor-bindings = <&scroll_encoder>;
+            sensor-bindings =<&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
         };
 
         raise_layer {
@@ -217,7 +217,7 @@
                                             &kp LEFT_ALT    &hm_shift_l LEFT_SHIFT BACKSPACE  &hm_l LEFT_CONTROL DEL                                                                 &hm_r RCTRL ENTER  &trans       &hm_alt_r RIGHT_ALT TAB
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
+            sensor-bindings = <&scroll_encoder>;
         };
 
         layer_3 {
