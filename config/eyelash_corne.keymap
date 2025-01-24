@@ -25,6 +25,12 @@
 #define HM_TAPPING_TERM_SLOW 200
 #define HM_PRIOR_IDLE 95
 #define HM_QUICK_TAP 175 
+
+
+&lt {
+    tapping-term-ms = <HM_TAPPING_TERM>;
+};
+
 / {
     behaviors {
         // Positional Homerow mods
