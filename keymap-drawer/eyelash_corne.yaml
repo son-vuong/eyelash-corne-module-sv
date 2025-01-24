@@ -130,7 +130,7 @@ layers:
   - $$mdi:volume-low$$
   - $$mdi:volume-high$$
   - $$mdi:apple-keyboard-shift$$
-  - $$mdi:volume-off$$
+  - {t: '$$mdi:volume-off$$', h: '$$mdi:apple-keyboard-command$$'}
   - PLAY PAUSE
   - $$mdi:volume-off$$
   - {t: '$$mdi:menu-down$$', s: '$$mdi:mouse$$'}
