@@ -23,8 +23,8 @@
 #define HM_TAPPING_TERM 140
 #define HM_TAPPING_TERM_FAST 140
 #define HM_TAPPING_TERM_SLOW 200
-#define HM_PRIOR_IDLE 95
-#define HM_QUICK_TAP 175 
+#define HM_PRIOR_IDLE 90
+#define HM_QUICK_TAP 120 
 
 
 &lt {
@@ -56,7 +56,7 @@
             require-prior-idle-ms = <HM_PRIOR_IDLE>;
             hold-trigger-key-positions = <KEYS_R KEYS_T>;
             hold-trigger-on-release;
-            retro-tap;
+            //retro-tap;
         };
 
         hm_r: homerow_mods_right {
@@ -71,7 +71,7 @@
             require-prior-idle-ms = <HM_PRIOR_IDLE>;
             hold-trigger-key-positions = <KEYS_L KEYS_T>;
             hold-trigger-on-release;
-            retro-tap;
+            //retro-tap;
         };
 
         // Positional Homerow mods for shift
@@ -120,7 +120,7 @@
             require-prior-idle-ms = <HM_PRIOR_IDLE>;
             hold-trigger-key-positions = <KEYS_R KEYS_T>;
             hold-trigger-on-release;
-            retro-tap;
+            //retro-tap;
         };
 
         hm_alt_r: hm_alt_r {
@@ -135,7 +135,7 @@
             require-prior-idle-ms = <HM_PRIOR_IDLE>;
             hold-trigger-key-positions = <KEYS_L KEYS_T>;
             hold-trigger-on-release;
-            retro-tap;
+            //retro-tap;
         };
 
         /*
