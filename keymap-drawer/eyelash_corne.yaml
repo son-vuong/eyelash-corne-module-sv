@@ -14,7 +14,7 @@ layers:
   - O
   - P
   - {t: '$$mdi:transfer$$', type: trans}
-  - '&td0'
+  - {t: '$$mdi:transfer$$', type: trans}
   - {t: A, h: LGUI}
   - {t: S, h: '$$mdi:apple-keyboard-option$$'}
   - {t: D, h: '$$mdi:apple-keyboard-shift$$'}
@@ -29,7 +29,7 @@ layers:
   - {t: L, h: '$$mdi:apple-keyboard-option$$'}
   - {t: ;, h: RIGHT GUI, s: ':'}
   - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
+  - '&ShiftCapsL'
   - Z
   - X
   - C
@@ -42,7 +42,7 @@ layers:
   - {t: ',', s: <}
   - {t: ., s: '>'}
   - {t: /, s: '?'}
-  - {t: '$$mdi:transfer$$', type: trans}
+  - $$mdi:apple-keyboard-control$$
   - $$mdi:apple-keyboard-option$$
   - {t: '$$mdi:backspace$$', h: NUMBER}
   - {t: '$$mdi:backspace-reverse-outline$$', h: '$$mdi:apple-keyboard-control$$'}
@@ -77,8 +77,8 @@ layers:
   - {t: '8', h: '$$mdi:apple-keyboard-shift$$', s: '*'}
   - {t: '9', h: '$$mdi:apple-keyboard-option$$', s: (}
   - {t: '0', h: RIGHT GUI, s: )}
-  - F11
   - {t: '$$mdi:transfer$$', type: trans}
+  - '&ShiftCapsL'
   - $$mdi:keyboard-esc$$
   - {t: '`', s: '~'}
   - {t: \, s: '|'}
@@ -91,7 +91,7 @@ layers:
   - {t: '[', s: '{'}
   - {t: ']', s: '}'}
   - {t: '''', s: '"'}
-  - F12
+  - $$mdi:apple-keyboard-control$$
   - $$mdi:apple-keyboard-option$$
   - {type: held}
   - {t: '$$mdi:backspace-reverse-outline$$', h: '$$mdi:apple-keyboard-control$$'}
@@ -110,8 +110,8 @@ layers:
   - PgUp
   - $$mdi:arrow-up-bold$$
   - PgDn
-  - {t: '$$mdi:transfer$$', type: trans}
   - CONFIG
+  - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - $$mdi:mouse-left-click-outline$$
   - {t: '$$mdi:menu-left$$', s: '$$mdi:mouse$$'}
@@ -127,7 +127,7 @@ layers:
   - $$mdi:arrow-right-bold$$
   - Ins
   - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
+  - '&ShiftCapsL'
   - $$mdi:volume-low$$
   - $$mdi:volume-high$$
   - $$mdi:apple-keyboard-shift$$
@@ -136,11 +136,11 @@ layers:
   - $$mdi:volume-off$$
   - {t: '$$mdi:menu-down$$', s: '$$mdi:mouse$$'}
   - END
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
+  - F11
+  - F12
   - $$mdi:skip-previous$$
   - $$mdi:skip-next$$
-  - {t: '$$mdi:transfer$$', type: trans}
+  - $$mdi:apple-keyboard-control$$
   - $$mdi:apple-keyboard-option$$
   - {t: '$$mdi:backspace$$', h: '$$mdi:apple-keyboard-shift$$'}
   - {t: '$$mdi:backspace-reverse-outline$$', h: '$$mdi:apple-keyboard-control$$'}
@@ -159,8 +159,8 @@ layers:
   - RGB EFR
   - RGB EFF
   - RGB SPD
-  - RGB SPI
-  - {type: held}
+  - {t: RGB SPI, type: held}
+  - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {h: '1', s: '$$mdi:bluetooth-connect$$'}
   - {h: '2', s: '$$mdi:bluetooth-connect$$'}
